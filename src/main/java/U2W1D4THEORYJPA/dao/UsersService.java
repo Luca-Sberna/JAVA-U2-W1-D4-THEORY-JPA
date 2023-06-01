@@ -22,6 +22,10 @@ public class UsersService {
 		return usersRepo.findAll();
 	}
 
+	public User findByNameIgnoreCase(String name) throws ItemNotFoundException {
+		return usersRepo.findByNameIgnoreCase(name).orElseThrow(() -> new ItemNotFoundException(name));
+	}
+
 	public User findById(int id) {
 		// Optional<User> found = usersRepo.findById(id);
 
